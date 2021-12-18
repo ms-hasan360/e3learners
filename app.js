@@ -4,6 +4,7 @@ const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 const req = require('express/lib/request');
 const ObjectId = require('mongodb').ObjectId
+const path = require('path')
 
 
 const PORT = process.env.PORT || 8080
@@ -16,15 +17,15 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.static(path.join(__dirname,'public')));
 
 app.get('/', (req, res) => {
     // res.render('index', { title: 'e3learners' })
     res.sendFile(__dirname + '/index.html')
 })
-
-
-
-
+app.get('/image', (req, res) => {
+    res.render('./index.ejs', {title : 'Hi'})
+})
 
 const uri = "mongodb+srv://aaaaaaaa:aaaaaaaa@cluster0.lj19d.mongodb.net/mydb?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -66,9 +67,6 @@ client.connect(err => {
                 res.send(results.deletedCount > 0)
             })
     })
-
-
-
     console.log('database connected');
 });
 
