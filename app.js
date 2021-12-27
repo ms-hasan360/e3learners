@@ -19,13 +19,16 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname,'public')));
 
+app.get('/home', (req, res) => {
+    res.render('pages/index', {title : 'Hi'})
+})
+
+
 app.get('/', (req, res) => {
     // res.render('index', { title: 'e3learners' })
     res.sendFile(__dirname + '/index.html')
 })
-app.get('/image', (req, res) => {
-    res.render('./index.ejs', {title : 'Hi'})
-})
+
 
 const uri = "mongodb+srv://aaaaaaaa:aaaaaaaa@cluster0.lj19d.mongodb.net/mydb?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
