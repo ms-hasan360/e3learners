@@ -42,7 +42,8 @@ app.get('/signlepage', (req, res) => {
 
 app.get('/', (req, res) => {
     // res.render('index', { title: 'e3learners' })
-    res.sendFile(__dirname + '/index.html')
+    res.render('pages/index', {title : 'Hi'})
+    //res.sendFile(__dirname + '/index.html')
 })
 
 
@@ -67,7 +68,7 @@ client.connect(err => {
         collection.insertOne(user)
             .then(result => {
                 console.log('data inseted')
-                res.redirect('/')
+                res.redirect('/dashboard')
                
             })
     })
