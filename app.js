@@ -23,6 +23,22 @@ app.get('/home', (req, res) => {
     res.render('pages/index', {title : 'Hi'})
 })
 
+app.get('/dashboard', (req, res) => {
+    res.render('pages/dashboard', {title : 'Hi'})
+})
+app.get('/search', (req, res) => {
+    res.render('pages/searchPage', {title : 'Hi'})
+})
+app.get('/signin', (req, res) => {
+    res.render('pages/signin', {title : 'Hi'})
+})
+app.get('/signup', (req, res) => {
+    res.render('pages/signup', {title : 'Hi'})
+})
+app.get('/signlepage', (req, res) => {
+    res.render('pages/singlePage', {title : 'Hi'})
+})
+
 
 app.get('/', (req, res) => {
     // res.render('index', { title: 'e3learners' })
