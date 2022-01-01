@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs'); %>
+<%- include('../partials/nav.ejs'); %>
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <p><i class="nc-icon nc-user-run"></i> - Post(20)</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% for(var i=0; i<3; i++) {%>
+            <div class="col">
+                <div class="card h-80">
+                    <img src="../../assets/img/logo2.png" height="250" class="card-img-top" alt="#">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="#" class="text-decoration-none text-dark">Lorem ipsum dolor
+                                sit amet.</a></h5>
+                        <p class="card-text"><a href="#" class="text-decoration-underline text-dark">Lorem ipsum
+                                dolor sit, amet consectetur adipisicing elit. Iste, dolore.</a> </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">2/3/21</small>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    
+</div>
+
+<%- include('../partials/footer.ejs'); %>

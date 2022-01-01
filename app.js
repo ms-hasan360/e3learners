@@ -19,12 +19,10 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname,'public')));
 
-app.get('/home', (req, res) => {
-    res.render('pages/index', {title : 'Hi'})
-})
 
 app.get('/dashboard', (req, res) => {
-    res.render('pages/dashboard', {title : 'Hi'})
+   //res.sendFile(__dirname + '/playground/index.html')
+   res.render('pages/dashboard', {title : 'Hi'})
 })
 app.get('/search', (req, res) => {
     res.render('pages/searchPage', {title : 'Hi'})
@@ -35,17 +33,20 @@ app.get('/signin', (req, res) => {
 app.get('/signup', (req, res) => {
     res.render('pages/signup', {title : 'Hi'})
 })
-app.get('/signlepage', (req, res) => {
+app.get('/singlePage', (req, res) => {
     res.render('pages/singlePage', {title : 'Hi'})
 })
-
-
+app.get('/worldNetwork', (req, res) => {
+    res.render('pages/worldNetwork', {title : 'Hi'})
+})
 app.get('/', (req, res) => {
     // res.render('index', { title: 'e3learners' })
     res.render('pages/index', {title : 'Hi'})
     //res.sendFile(__dirname + '/index.html')
 })
-
+app.get('*', (req, res) => {
+    res.render('pages/error', {title : 'Hi'})
+})
 
 const uri = "mongodb+srv://aaaaaaaa:aaaaaaaa@cluster0.lj19d.mongodb.net/mydb?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
